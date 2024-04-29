@@ -1,13 +1,14 @@
-Version="4.2.0"
+#!/bin/bash
 
+Version="4.6.1"
 
 # Build Images
-Version=$Version docker-compose build
+Version=$Version docker compose build
 
 # Add Tag
-docker tag micahmitchell/facilemanager micahmitchell/facilemanager:$Version
+docker tag myahmitchell/facilemanager myahmitchell/facilemanager:$Version
 
 # Upload Images
-docker push micahmitchell/facilemanager:latest
+#docker push myahmitchell/facilemanager:latest
 
-docker push micahmitchell/facilemanager:$Version
+#docker push myahmitchell/facilemanager:$Version

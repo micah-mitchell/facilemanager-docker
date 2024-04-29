@@ -1,17 +1,17 @@
 # Quick reference
 **About**: Unofficial Dockerization of the facileManager.com Web Interface
 
-**Maintained by**: [micah-mitchell](https://github.com/micah-mitchell) (*not* the WillyXJ or the facileManager Team)
+**Maintained by**: [myah-mitchell](https://github.com/myah-mitchell) (*not* the WillyXJ or the facileManager Team)
 
 **Where to get help**:  This projects GitHub Issues or facileManager Issues if not related to docker
 
-**Docker Hub Link**: https://hub.docker.com/r/micahmitchell/facilemanager
+**Docker Hub Link**: https://hub.docker.com/r/myahmitchell/facilemanager
 
-**GitHub Link**: https://github.com/micah-mitchell/facileManager-docker
+**GitHub Link**: https://github.com/myah-mitchell/facileManager-docker
 
 
 # Supported tags and respective `Dockerfile` links
-* [`latest`](https://github.com/micah-mitchell/facileManager-docker/blob/main/Dockerfile), [`4.2.0`](https://github.com/micah-mitchell/facileManager-docker/blob/main/Dockerfile)
+* [`latest`](https://github.com/myah-mitchell/facileManager-docker/blob/main/Dockerfile), [`4.6.1`](https://github.com/myah-mitchell/facileManager-docker/blob/main/Dockerfile)
 
 # What is facileManger?
 
@@ -23,7 +23,7 @@ As quoted from facileManger.com; "facileManager is a modular suite of web apps b
 
 facileManager is just the web interface to which you can enable multiple modules. Each of these modules can run as their own container.
 
-**fmDNS** : https://hub.docker.com/r/micahmitchell/fmdns
+**fmDNS** : https://hub.docker.com/r/myahmitchell/fmdns
 
 # How to use this image
 
@@ -36,7 +36,7 @@ $ docker run -d --name facilemanager-p 8080:80 \
    -e MYSQL_DATABASE=facilemanager \
    -e MYSQL_USER=facilemanager \
    -e MYSQL_PASSWORD=<password> \
-   micahmitchell/facilemanager`
+   myahmitchell/facilemanager`
 ```
 Then, access it via http://localhost:8080, http://host-ip:8080, or http://<fqdn>:8080 in a browser.
 
@@ -62,7 +62,7 @@ By default, this image does not include any volumes. As all data is stored in My
 ```yaml
   facilemanager:
     build:
-    image: micahmitchell/facilemanager:latest
+    image: myahmitchell/facilemanager:latest
     hostname: ${fm_URL}
     networks:
       - frontend

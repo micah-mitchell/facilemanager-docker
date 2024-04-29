@@ -1,6 +1,6 @@
-FROM php:7.4-apache
+FROM php:8.2-apache
 
-LABEL maintainer="Micah Mitchell <code@mitchell.dev>"
+LABEL maintainer="Myah Mitchell <code@mitchell.dev>"
 ARG Version=latest
 
 WORKDIR /src
@@ -10,7 +10,7 @@ RUN	apt-get update \
 	&& wget http://www.facilemanager.com/download/facilemanager-complete-$Version.tar.gz \
 	&& tar -xvf facilemanager-complete-$Version.tar.gz \
 	&& mv facileManager/server/* /var/www/html/ \
-    && chown -R www-data:www-data /var/www/html/
+	&& chown -R www-data:www-data /var/www/html/
 
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
 	&& docker-php-ext-install mysqli ldap \
@@ -18,9 +18,9 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
 
 COPY config.inc.php /var/www/html/
 COPY php.ini /usr/local/etc/php/php.ini
-COPY init.php.patch /var/www/html/fm-includes/
+#COPY init.php.patch /var/www/html/fm-includes/
 
-RUN patch /var/www/html/fm-includes/init.php /var/www/html/fm-includes/init.php.patch
+#RUN patch /var/www/html/fm-includes/init.php /var/www/html/fm-includes/init.php.patch
 
 RUN rm -rf /var/lib/apt/lists/* \
     && rm -rf /src/facileManager/
