@@ -1,15 +1,16 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 LABEL maintainer="Myah Mitchell <code@mitchell.dev>"
-ARG Version=latest
+ARG Version="4.6.1"
 
 WORKDIR /src
 
 RUN	apt-get update \
-	&& apt-get -qqy install wget ssh libldb-dev libldap2-dev bind9utils \
-	&& wget http://www.facilemanager.com/download/facilemanager-complete-$Version.tar.gz \
-	&& tar -xvf facilemanager-complete-$Version.tar.gz \
-	&& mv facileManager/server/* /var/www/html/ \
+	&& apt-get -qqy install wget ssh libldb-dev libldap2-dev bind9utils unzip
+
+RUN wget https://github.com/WillyXJ/facileManager/archive/refs/tags/v$Version-complete.zip \
+  && unzip v$Version-complete.zip \
+  && mv facileManager-$Version-complete/server/* /var/www/html/ \
 	&& chown -R www-data:www-data /var/www/html/
 
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
