@@ -9,6 +9,6 @@ Version=$Version docker compose build
 docker tag myahmitchell/facilemanager myahmitchell/facilemanager:$Version
 
 # Upload Images
-#docker push myahmitchell/facilemanager:latest
+docker push myahmitchell/facilemanager:latest
 
-#docker push myahmitchell/facilemanager:$Version
+docker push myahmitchell/facilemanager:$Version
